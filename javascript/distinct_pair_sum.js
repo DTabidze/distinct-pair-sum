@@ -1,11 +1,30 @@
 function distinctPairSum(arr, k) {
   // type your code here
+  let result = [];
+  while (arr.length > 0) {
+    let diff = k - arr[0];
+    let num = arr.shift(1);
+    indxDiff = arr.indexOf(diff);
+    if (indxDiff !== -1) {
+      result.push([num, diff]);
+
+      arr = arr.filter((element) => element !== diff);
+      // arr.splice(indxDiff, 1);
+    }
+    // arr.splice(0, 1);
+    // console.log(diff);
+    // console.log(arr);
+    // console.log(result);
+  }
+  return result;
 }
+
+// distinctPairSum([0, 1, 1, 2, 0, 1, 1], 2);
 
 if (require.main === module) {
   // add your own tests in here
   console.log("Expecting: [[1, 1], [2, 0]]");
-  console.log("=>", distinctPairSum([0, 1, 1, 2, 0, 1, 1], 2));
+  console.log("=>", distinctPairSum());
 
   console.log("");
 
